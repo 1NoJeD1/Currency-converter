@@ -2,24 +2,22 @@
 
 # PostgreSQL
 
-Создаем базу
+Создаем базу с пользователем
 ```
-CREATE DATABASE converter_db;
-```
+CREATE DATABASE converter_db
+    WITH 
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'Russian_Russia.1251'
+    LC_CTYPE = 'Russian_Russia.1251'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1;
 
-Создаем пользователя
-```
-CREATE ROLE converter_user WITH LOGIN NOSUPERUSER NOCREATEDB NOCREATEROLE NOINHERIT NOREPLICATION CONNECTION LIMIT -1 PASSWORD 'converter';
-```
+ALTER DEFAULT PRIVILEGES
+GRANT INSERT, SELECT, UPDATE ON TABLES TO converter_user;
 
-Даем права на базу converter_db
-```
-GRANT ALL PRIVILEGES ON DATABASE "converter_db" TO converter_user;
-```
-
-Даем все права на таблицы базы
-```
-GRANT ALL ON SCHEMA public TO converter_user;
+ALTER DEFAULT PRIVILEGES
+GRANT ALL ON TABLES TO postgres;
 ```
 
 Создаем структуру базы
