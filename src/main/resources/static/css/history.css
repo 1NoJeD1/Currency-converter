@@ -1,0 +1,26 @@
+.columns {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 50px;
+  display: flex;
+}
+
+.field {
+  margin: 5px;
+}
+
+input {
+  height: 20px;
+}
+
+table {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 50px;
+  border: 1px solid gray;
+}
+
+tr,
+th {
+  border: 1px solid gray;
+}
