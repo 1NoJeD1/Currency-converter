@@ -77,3 +77,12 @@ START TRANSACTION;
     GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO converter_user;
 COMMIT
 ```
+
+# Запуск
+Особых требований к запуску нет.
+```
+Java 17
+```
+```
+mvnw spring-boot:run
+```
